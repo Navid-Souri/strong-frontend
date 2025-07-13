@@ -18,7 +18,7 @@ function CreateSetForm({ theme, workoutSessionId, onClose, onSetCreated }) {
   const [error, setError] = useState(null);
   const [successMessage, setSuccessMessage] = useState(null);
   // Define API Base URL from environment variable, with localhost fallback for development
-  const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
+  const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://strong-backend-5caa.onrender.com';
   const colors = {
     background: theme === "dark" ? "#2d3748" : "#ffffff",
     text: theme === "dark" ? "#e5e7eb" : "#1f2937",

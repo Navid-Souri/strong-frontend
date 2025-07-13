@@ -20,8 +20,7 @@ function Profile({ theme, toggleTheme }) {
   });
   const [message, setMessage] = useState('');
   // Define API Base URL from environment variable, with localhost fallback for development
-  const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
-
+  const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://strong-backend-5caa.onrender.com';
   // Color scheme based on theme
   const colors = {
     background: theme === "dark" ? "#262626" : "#f9fafb",

@@ -7,7 +7,7 @@ function DailyMoodTracker({ theme }) {
   const [messageType, setMessageType] = useState(""); // 'success' or 'error'
   const [loading, setLoading] = useState(false);
   // Define API Base URL from environment variable, with localhost fallback for development
-  const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
+  const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://strong-backend-5caa.onrender.com';
   // تم رنگی بر اساس props theme
   const colors = {
     background: theme === "dark" ? "#404040" : "#ffffff",

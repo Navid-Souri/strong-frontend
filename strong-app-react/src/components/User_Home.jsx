@@ -10,8 +10,7 @@ function User_Home({ theme }) {
   const [loadingUser, setLoadingUser] = useState(true);
   const [userError, setUserError] = useState(null);
   // Define API Base URL from environment variable, with localhost fallback for development
-  const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
-  // States for workout session selection
+  const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://strong-backend-5caa.onrender.com';
   const [workoutSessions, setWorkoutSessions] = useState([]);
   const [selectedSessionId, setSelectedSessionId] = useState(null); // null means show all sets
   const [loadingSessions, setLoadingSessions] = useState(true);

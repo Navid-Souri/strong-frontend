@@ -17,7 +17,7 @@ function WorkoutBarChartMonth({ theme }) {
   const [error, setError] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
   // Define API Base URL from environment variable, with localhost fallback for development
-  const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
+  const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://strong-backend-5caa.onrender.com';
   // Detect screen size
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 640);

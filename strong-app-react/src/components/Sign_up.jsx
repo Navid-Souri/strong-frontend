@@ -41,8 +41,7 @@ export default function SignUp() {
     under_chest_size: "",
   });
   // Define API Base URL from environment variable, with localhost fallback for development
-  const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
-
+  const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://strong-backend-5caa.onrender.com';
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
