@@ -11,6 +11,8 @@ function CreateExerciseForm({ theme, onClose, onExerciseCreated }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [successMessage, setSuccessMessage] = useState(null);
+  // Define API Base URL from environment variable, with localhost fallback for development
+  const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
 
   const colors = {
     background: theme === "dark" ? "#2d3748" : "#ffffff",
@@ -45,7 +47,7 @@ function CreateExerciseForm({ theme, onClose, onExerciseCreated }) {
     try {
       const accessToken = localStorage.getItem("access");
       const response = await axios.post(
-        "http://localhost:8000/api/exercises/", // URL for ExerciseViewSet
+        `${API_BASE_URL}/api/exercises/`, // URL for ExerciseViewSet
         formData,
         { headers: { Authorization: `Bearer ${accessToken}` } }
       );

@@ -11,7 +11,8 @@ function WaterIntakeTracker({ theme }) {
   const [error, setError] = useState(null);
   const [message, setMessage] = useState("");
   const [messageType, setMessageType] = useState("");
-
+  // Define API Base URL from environment variable, with localhost fallback for development
+  const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
   const colors = {
     background: theme === "dark" ? "#404040" : "#ffffff",
     text: theme === "dark" ? "#e5e7eb" : "#1f2937",
@@ -42,7 +43,7 @@ function WaterIntakeTracker({ theme }) {
 
         const today = getTodayDate();
         const response = await axios.get(
-          "http://localhost:8000/api/daily-water-logs/",
+          `${API_BASE_URL}/api/daily-water-logs/`,
           {
             headers: { Authorization: `Bearer ${accessToken}` },
           }

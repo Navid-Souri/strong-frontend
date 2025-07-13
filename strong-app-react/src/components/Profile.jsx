@@ -19,6 +19,8 @@ function Profile({ theme, toggleTheme }) {
     gender: '',
   });
   const [message, setMessage] = useState('');
+  // Define API Base URL from environment variable, with localhost fallback for development
+  const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
 
   // Color scheme based on theme
   const colors = {
@@ -47,7 +49,7 @@ function Profile({ theme, toggleTheme }) {
           return;
         }
 
-        const response = await axios.get('http://localhost:8000/api/me/', {
+        const response = await axios.get(`${API_BASE_URL}/api/me/`, {
           headers: {
             Authorization: `Bearer ${accessToken}`
           }

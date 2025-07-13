@@ -16,7 +16,8 @@ const TableCell = ({ children, className = "" }) => (
     {children}
   </td>
 );
-
+// Define API Base URL from environment variable, with localhost fallback for development
+  const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
 const EditableInput = ({ value, onChange, type, min, step, colors, disabled }) => (
   <input
     type={type}
@@ -81,7 +82,7 @@ function WorkoutSetsTable({ theme, workoutSessionId, refreshTrigger }) { // refr
           throw new Error("برای مشاهده ست‌های تمرینی، لطفاً وارد شوید.");
         }
 
-        let apiUrl = "http://localhost:8000/api/sets/";
+        let apiUrl = `${API_BASE_URL}/api/sets/`;
         if (workoutSessionId) {
           apiUrl += `?session_id=${workoutSessionId}`;
         }

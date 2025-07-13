@@ -18,7 +18,7 @@ export default function Login() {
     setSuccess("");
 
     try {
-      const res = await fetch("http://localhost:8000/api/token/", {
+      const res = await fetch(`${API_BASE_URL}/api/token/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),

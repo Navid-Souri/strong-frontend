@@ -16,7 +16,7 @@ function DailyMoodChart({ theme }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
-
+  
   // Detect screen size
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 640);
@@ -38,7 +38,7 @@ function DailyMoodChart({ theme }) {
         }
 
         const response = await axios.get(
-          "http://localhost:8000/progress/daily-mood-summary-last-30-days/", // Correct URL for DailyMood
+          `${API_BASE_URL}/progress/daily-mood-summary-last-30-days/`, // Updated URL with API_BASE_URL
           {
             headers: { Authorization: `Bearer ${accessToken}` },
           }

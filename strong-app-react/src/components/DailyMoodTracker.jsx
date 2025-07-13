@@ -6,7 +6,8 @@ function DailyMoodTracker({ theme }) {
   const [message, setMessage] = useState("");
   const [messageType, setMessageType] = useState(""); // 'success' or 'error'
   const [loading, setLoading] = useState(false);
-
+  // Define API Base URL from environment variable, with localhost fallback for development
+  const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
   // تم رنگی بر اساس props theme
   const colors = {
     background: theme === "dark" ? "#404040" : "#ffffff",
@@ -40,7 +41,7 @@ function DailyMoodTracker({ theme }) {
       
       // First check if mood exists for today
       const existingResponse = await axios.get(
-        `http://localhost:8000/api/daily-moods/?date=${today}`,
+        `${API_BASE_URL}/api/daily-moods/?date=${today}`,
         { headers: { Authorization: `Bearer ${accessToken}` } }
       );
 

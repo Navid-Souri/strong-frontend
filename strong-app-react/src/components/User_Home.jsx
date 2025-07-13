@@ -9,7 +9,8 @@ function User_Home({ theme }) {
   const [username, setUsername] = useState("کاربر");
   const [loadingUser, setLoadingUser] = useState(true);
   const [userError, setUserError] = useState(null);
-
+  // Define API Base URL from environment variable, with localhost fallback for development
+  const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
   // States for workout session selection
   const [workoutSessions, setWorkoutSessions] = useState([]);
   const [selectedSessionId, setSelectedSessionId] = useState(null); // null means show all sets
@@ -45,7 +46,7 @@ function User_Home({ theme }) {
           return;
         }
 
-        const response = await axios.get("http://localhost:8000/api/me/", {
+        const response = await axios.get(`${API_BASE_URL}/api/me/`, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },

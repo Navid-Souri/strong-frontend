@@ -16,6 +16,8 @@ function DailyWaterLogChart({ theme }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
+  // Define API Base URL from environment variable, with localhost fallback for development
+  const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
 
   // Detect screen size
   useEffect(() => {
@@ -38,7 +40,7 @@ function DailyWaterLogChart({ theme }) {
         }
 
         const response = await axios.get(
-          "http://localhost:8000/progress/daily-water-summary-last-30-days/", // Correct URL for DailyWaterLog
+          `${API_BASE_URL}/progress/daily-water-summary-last-30-days/`, // Correct URL for DailyWaterLog
           {
             headers: { Authorization: `Bearer ${accessToken}` },
           }

@@ -27,6 +27,9 @@ function Workout({ theme }) {
   });
   const [refreshKey, setRefreshKey] = useState(0);
 
+  // Define API Base URL from environment variable, with localhost fallback for development
+  const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
+
   // Theme colors
   const colors = {
     background: theme === "dark" ? "#262626" : "#ffffff",
@@ -60,7 +63,7 @@ function Workout({ theme }) {
         throw new Error("Please log in to view workout sessions.");
 
       const response = await axios.get(
-        "http://localhost:8000/api/workout-sessions/",
+        `${API_BASE_URL}/api/workout-sessions/`,
         {
           headers: { Authorization: `Bearer ${accessToken}` },
         }

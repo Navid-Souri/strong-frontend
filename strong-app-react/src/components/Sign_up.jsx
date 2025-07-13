@@ -40,6 +40,9 @@ export default function SignUp() {
     // Conditional field for 'female' gender
     under_chest_size: "",
   });
+  // Define API Base URL from environment variable, with localhost fallback for development
+  const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
+
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
@@ -67,7 +70,7 @@ export default function SignUp() {
     }
 
     try {
-      const res = await fetch("http://localhost:8000/api/register/", {
+      const res = await fetch(`${API_BASE_URL}/api/register/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(dataToSend), // Send all form data
