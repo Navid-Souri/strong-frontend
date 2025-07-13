@@ -16,6 +16,8 @@ export default function Login() {
 
     setError("");
     setSuccess("");
+    // Define API Base URL from environment variable, with localhost fallback for development
+  const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
 
     try {
       const res = await fetch(`${API_BASE_URL}/api/token/`, {
