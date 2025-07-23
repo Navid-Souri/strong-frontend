@@ -77,7 +77,7 @@ function User_Home({ theme }) {
         }
 
         const response = await axios.get(
-          "http://localhost:8000/api/workout-sessions/", // URL for WorkoutSessionViewSet
+          `${API_BASE_URL}/api/workout-sessions/`, // URL for WorkoutSessionViewSet
           {
             headers: { Authorization: `Bearer ${accessToken}` },
           }

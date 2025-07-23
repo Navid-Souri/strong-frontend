@@ -89,7 +89,7 @@ function CreateSetForm({ theme, workoutSessionId, onClose, onSetCreated }) {
 
     try {
       const accessToken = localStorage.getItem("access");
-      const response = await axios.post("http://localhost:8000/api/sets/", payload, {
+      const response = await axios.post(`${API_BASE_URL}/api/sets/`, payload, {
         headers: { Authorization: `Bearer ${accessToken}` },
       });
       setSuccessMessage("ست با موفقیت ایجاد شد!");

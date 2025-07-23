@@ -49,14 +49,14 @@ function DailyMoodTracker({ theme }) {
         // Update existing mood
         const existingId = existingResponse.data.results[0].id;
         await axios.patch(
-          `http://localhost:8000/api/daily-moods/${existingId}/`,
+          `${API_BASE_URL}/api/daily-moods/${existingId}/`,
           { mood_score: score },
           { headers: { Authorization: `Bearer ${accessToken}` } }
         );
       } else {
         // Create new mood
         await axios.post(
-          "http://localhost:8000/api/daily-moods/",
+          `${API_BASE_URL}/api/daily-moods/`,
           { mood_score: score, date: today },
           { headers: { Authorization: `Bearer ${accessToken}` } }
         );
@@ -102,7 +102,7 @@ function DailyMoodTracker({ theme }) {
 
         const today = new Date().toISOString().split('T')[0];
         const response = await axios.get(
-          `http://localhost:8000/api/daily-moods/?date=${today}`,
+          `${API_BASE_URL}/api/daily-moods/?date=${today}`,
           { headers: { Authorization: `Bearer ${accessToken}` } }
         );
 

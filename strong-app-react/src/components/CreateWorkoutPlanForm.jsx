@@ -112,7 +112,7 @@ function CreateWorkoutPlanForm({ theme, onClose, onPlanCreated }) {
       };
 
       const response = await axios.post(
-        "http://localhost:8000/api/workout-plans/", // URL for WorkoutPlanViewSet
+        `${API_BASE_URL}/api/workout-plans/`, // URL for WorkoutPlanViewSet
         payload,
         { headers: { Authorization: `Bearer ${accessToken}` } }
       );

@@ -89,7 +89,7 @@ function WaterIntakeTracker({ theme }) {
       if (todayWaterLogId) {
         // Update existing record (PUT)
         response = await axios.put(
-          `http://localhost:8000/api/daily-water-logs/${todayWaterLogId}/`,
+          `${API_BASE_URL}/api/daily-water-logs/${todayWaterLogId}/`,
           { amount_ml: newAmountMl, date: today },
           {
             headers: { Authorization: `Bearer ${accessToken}` },
@@ -99,7 +99,7 @@ function WaterIntakeTracker({ theme }) {
       } else {
         // Create new record (POST)
         response = await axios.post(
-          "http://localhost:8000/api/daily-water-logs/",
+          `${API_BASE_URL}/api/daily-water-logs/`,
           { date: today, amount_ml: newAmountMl },
           {
             headers: { Authorization: `Bearer ${accessToken}` },

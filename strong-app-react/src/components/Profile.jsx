@@ -86,7 +86,7 @@ function Profile({ theme, toggleTheme }) {
     setMessage('');
     try {
       const accessToken = localStorage.getItem('access');
-      const response = await axios.patch('http://localhost:8000/api/me/', formData, {
+      const response = await axios.patch(`${API_BASE_URL}/api/me/`, formData, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
           'Content-Type': 'application/json'

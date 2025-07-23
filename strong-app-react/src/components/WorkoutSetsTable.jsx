@@ -164,7 +164,7 @@ function WorkoutSetsTable({ theme, workoutSessionId, refreshTrigger }) { // refr
       };
 
       const response = await axios.patch(
-        `http://localhost:8000/api/sets/${setId}/`,
+        `${API_BASE_URL}/api/sets/${setId}/`,
         payload,
         { headers: { Authorization: `Bearer ${accessToken}` } }
       );

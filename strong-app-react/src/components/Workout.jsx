@@ -96,7 +96,7 @@ function Workout({ theme }) {
       const accessToken = localStorage.getItem("access");
       if (!accessToken) throw new Error("Please log in to view exercises.");
 
-      const response = await axios.get("http://localhost:8000/api/exercises/", {
+      const response = await axios.get(`${API_BASE_URL}/api/exercises/`, {
         headers: { Authorization: `Bearer ${accessToken}` },
       });
 
