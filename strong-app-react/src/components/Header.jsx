@@ -57,7 +57,7 @@ function Header({ theme }) {
       {weather && (
         <div className="flex items-center text-sm font-semibold text-gray-900 dark:text-white">
           <img
-            src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}.png`}
+            src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}.png`}
             alt={weather.weather[0].description}
             className="w-8 h-8"
             title={weather.weather[0].description}
