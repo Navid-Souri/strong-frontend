@@ -32,7 +32,7 @@ function CreateWorkoutPlanForm({ theme, onClose, onPlanCreated }) {
         if (!accessToken) {
           throw new Error("Please log in to fetch exercises.");
         }
-        const response = await axios.get(`${API_BASE_URL}/exercises/`, {
+        const response = await axios.get(`${API_BASE_URL}/api/exercises/`, {
           headers: { Authorization: `Bearer ${accessToken}` },
         });
         setExercises(Array.isArray(response.data) ? response.data : response.data.results || []);
